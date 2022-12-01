@@ -33,7 +33,7 @@ namespace mantis_ui_tests
                 var element = driver.FindElement(By.CssSelector("li:nth-of-type(3) [data-toggle='dropdown']"));
                 element.Click();
                 Thread.Sleep(250);
-                driver.FindElement(By.CssSelector("[href='/mantisbt-2.12.0/logout_page.php']")).Click();
+                driver.FindElement(By.CssSelector("[href='/mantisbt-2.25.2/logout_page.php']")).Click();
                 Thread.Sleep(250);
             }
         }
