@@ -18,6 +18,14 @@
     <PackageReference Include="Selenium.WebDriver" Version="4.6.0" />
     <PackageReference Include="NetFTPLibrary" Version="9.16.0" />
     <PackageReference Include="System.Net.FtpClient" Version="1.0.5824.34026" />
+    <PackageReference Include="SimpleBrowser.WebDriver" Version="0.5.43" />
+    <PackageReference Include="Grpc.Tools" Version="2.23.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Google.Protobuf" Version="3.9.1" />
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.23.2" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.23.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +36,12 @@
     <None Remove="Selenium.WebDriver" />
     <None Remove="NetFTPLibrary" />
     <None Remove="System.Net.FtpClient" />
+    <None Remove="SimpleBrowser" />
+    <None Remove="SimpleBrowser.WebDriver" />
+    <None Remove="Grpc.Tools" />
+    <None Remove="Google.Protobuf" />
+    <None Remove="Grpc.AspNetCore.Server" />
+    <None Remove="Grpc.Net.ClientFactory" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppManager\" />

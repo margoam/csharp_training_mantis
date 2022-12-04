@@ -12,6 +12,7 @@ namespace mantis_ui_tests
         public LoginHelper Auth { get; set; }
         public ManagementMenuHelper Menu { get; set; }
         public ProjectManagementHelper Project { get; set; }
+        public SoapHelper Soap { get; set; }
 
         public static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
@@ -19,10 +20,10 @@ namespace mantis_ui_tests
         {
             driver = new FirefoxDriver();
             baseUrl = "http://localhost/mantisbt-2.25.2/";
-          
             Auth = new LoginHelper(this);
             Menu = new ManagementMenuHelper(this, baseUrl);
             Project = new ProjectManagementHelper(this);
+            Soap = new SoapHelper(this);
         }
         public static ApplicationManager GetInstance()
         {
