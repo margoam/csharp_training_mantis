@@ -48,4 +48,9 @@
     <Folder Include="Model\" />
     <Folder Include="Tests\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="OpenAPIs\mantisconnect.php">
+      <Gettext.ScanForTranslations>false</Gettext.ScanForTranslations>
+    </None>
+  </ItemGroup>
 </Project>

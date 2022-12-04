@@ -10,6 +10,8 @@ namespace mantis_ui_tests
             [Test]
             public void ProjectRemovalTest()
             {
+
+                app.Soap.GetAllProjects();
               
                 app.Menu.GoToProjectsPage();
                 List<ProjectData> oldProjects = app.Project.isProjectExists(newProject);

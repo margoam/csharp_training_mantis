@@ -7,10 +7,14 @@ namespace mantis_ui_tests
 		{
 		}
 
-		public List<ProjectData> GetAllProjects()
+		public List<ProjectData> GetAllProjects(AccountData account)
 		{
-			return this;
-		}
+			Mantis.MantisConnectPortTypeClient client = new MantisConnectPortTypeClient();
+
+			client.mc_projects_get_user_accessible(account.Username, account.Password, project);
+
+
+        }
 
         public void AddProject(ProjectData project)
         {
