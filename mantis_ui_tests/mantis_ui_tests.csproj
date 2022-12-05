@@ -65,22 +65,10 @@
     <None Remove="Microsoft.OpenApi" />
     <None Remove="SoapFormatter" />
     <None Remove="SimpleSOAPClient" />
-    <None Remove="Protos\api.proto" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppManager\" />
     <Folder Include="Model\" />
     <Folder Include="Tests\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Protos\api.proto">
-      <SourceUri>http://localhost/mantisbt-2.25.2/api/soap/mantisconnect.php?wsdl</SourceUri>
-      <GrpcServices>ClientAndServer</GrpcServices>
-      <Access>Public</Access>
-      <ProtoCompile>True</ProtoCompile>
-      <CompileOutputs>True</CompileOutputs>
-      <OutputDir>obj\Debug\net6.0\</OutputDir>
-      <Generator>MSBuild:Compile</Generator>
-    </Compile>
   </ItemGroup>
 </Project>
