@@ -12,7 +12,7 @@ namespace mantis_ui_tests
         public LoginHelper Auth { get; set; }
         public ManagementMenuHelper Menu { get; set; }
         public ProjectManagementHelper Project { get; set; }
-        public SoapHelper Soap { get; set; }
+        public APIHelper Api { get; set; }
 
         public static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
@@ -23,7 +23,7 @@ namespace mantis_ui_tests
             Auth = new LoginHelper(this);
             Menu = new ManagementMenuHelper(this, baseUrl);
             Project = new ProjectManagementHelper(this);
-            Soap = new SoapHelper(this);
+            Api = new APIHelper(this);
         }
         public static ApplicationManager GetInstance()
         {

@@ -4,6 +4,10 @@ namespace mantis_ui_tests
     [TestFixture]
     public class ProjectCreationTests : TestBase
     {
+
+
+        AccountData accountData = new AccountData { Username = "administrator", Password = "root" };
+
         [Test]
 
         public void ProjectCreationTest()
@@ -12,12 +16,12 @@ namespace mantis_ui_tests
                 (GenerateRandomString(10), GenerateRandomString(10));
 
             app.Menu.GoToProjectsPage();
-            List<ProjectData> oldProjects = app.Project.GetProjectsList();
+            List<ProjectData> oldProjects = APIHelper.GetAllProjects(accountData);
 
             app.Menu.GoToCreateProjectPage();
             app.Project.CreateProject(newProject);
 
-            List<ProjectData> newProjects = app.Project.GetProjectsList();
+            List<ProjectData> newProjects = APIHelper.GetAllProjects(accountData);
 
             oldProjects.Add(newProject);
             newProjects.Sort();

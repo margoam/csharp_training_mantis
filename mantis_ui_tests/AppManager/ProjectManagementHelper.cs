@@ -68,6 +68,24 @@ namespace mantis_ui_tests
             driver.FindElement(By.CssSelector("[type='submit']")).Click();
             Thread.Sleep(250);
         }
+
+        public void RemoveProjectIfExist(ProjectData project, AccountData accountData)
+        {
+            foreach (var projectData in APIHelper.GetAllProjects(accountData))
+            {
+                if (projectData.Name == project.Name)
+                {
+                    SelectProjectToRemove(projectData.Name);
+                    RemoveProject();
+                }
+            }
+        }
+
+        private void SelectProjectToRemove(string projectName)
+        {
+            manager.Menu.GoToProjectsPage();
+            driver.FindElement(By.LinkText(projectName)).Click();
+        }
     }
 }
 

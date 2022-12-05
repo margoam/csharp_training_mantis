@@ -7,6 +7,10 @@ namespace mantis_ui_tests
         public string Password { get; set; }
         public string Email { get; set; }
 
+        public AccountData()
+        {
+
+        }
         public AccountData(string username, string password)
         {
             this.Username = username;

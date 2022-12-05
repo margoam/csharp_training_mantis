@@ -7,19 +7,20 @@ namespace mantis_ui_tests
         ProjectData newProject = new ProjectData
                 (GenerateRandomString(10), GenerateRandomString(10));
 
-            [Test]
+        AccountData accountData = new AccountData { Username = "administrator", Password = "root" };
+
+        [Test]
             public void ProjectRemovalTest()
             {
-
-                app.Soap.GetAllProjects();
               
                 app.Menu.GoToProjectsPage();
-                List<ProjectData> oldProjects = app.Project.isProjectExists(newProject);
+                app.Api.CreateProjectForRemovalIfNotExist(newProject, accountData);
+                List<ProjectData> oldProjects = APIHelper.GetAllProjects(accountData);
 
                 app.Menu.GoToEditProjectPage(0);
-                app.Project.RemoveProject();
+                app.Project.RemoveProjectIfExist(oldProjects[0],accountData);
 
-                List<ProjectData> newProjects = app.Project.GetProjectsList();
+                List<ProjectData> newProjects = APIHelper.GetAllProjects(accountData);
 
                 oldProjects.RemoveAt(0);
                 newProjects.Sort();

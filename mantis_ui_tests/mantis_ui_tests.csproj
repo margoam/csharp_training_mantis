@@ -26,6 +26,19 @@
     <PackageReference Include="Google.Protobuf" Version="3.9.1" />
     <PackageReference Include="Grpc.AspNetCore.Server" Version="2.23.2" />
     <PackageReference Include="Grpc.Net.ClientFactory" Version="2.23.2" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" Version="5.2.9" />
+    <PackageReference Include="Grpc.Core.Api" Version="2.50.0" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Server" Version="7.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ApiExplorer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.4.4" />
+    <PackageReference Include="SoapFormatter" Version="1.1.9" />
+    <PackageReference Include="SimpleSOAPClient" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +55,17 @@
     <None Remove="Google.Protobuf" />
     <None Remove="Grpc.AspNetCore.Server" />
     <None Remove="Grpc.Net.ClientFactory" />
+    <None Remove="Microsoft.AspNet.WebApi.Client" />
+    <None Remove="Microsoft.AspNet.WebApi.Core" />
+    <None Remove="Microsoft.AspNet.WebApi" />
+    <None Remove="Microsoft.AspNet.WebApi.WebHost" />
+    <None Remove="Grpc.Core.Api" />
+    <None Remove="Microsoft.Extensions.ApiDescription.Server" />
+    <None Remove="Microsoft.AspNetCore.Mvc.ApiExplorer" />
+    <None Remove="Microsoft.OpenApi" />
+    <None Remove="SoapFormatter" />
+    <None Remove="SimpleSOAPClient" />
+    <None Remove="Protos\api.proto" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppManager\" />
@@ -49,8 +73,14 @@
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="OpenAPIs\mantisconnect.php">
-      <Gettext.ScanForTranslations>false</Gettext.ScanForTranslations>
-    </None>
+    <Compile Include="Protos\api.proto">
+      <SourceUri>http://localhost/mantisbt-2.25.2/api/soap/mantisconnect.php?wsdl</SourceUri>
+      <GrpcServices>ClientAndServer</GrpcServices>
+      <Access>Public</Access>
+      <ProtoCompile>True</ProtoCompile>
+      <CompileOutputs>True</CompileOutputs>
+      <OutputDir>obj\Debug\net6.0\</OutputDir>
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
   </ItemGroup>
 </Project>
